@@ -1,8 +1,0 @@
-language: csharp
-solution: dotNet/CleanCode.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
-  - nuget restore dotNet/CleanCode.sln
-after_script:
-  - nunit-console dotNet/NamingAndCommenting/bin/Release/NamingAndCommenting.dll

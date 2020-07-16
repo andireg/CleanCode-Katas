@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
+using AutoFixture;
 using SolidPrinciplesRefactored.Model;
 using SolidPrinciplesRefactored.Services;
 using SolidPrinciplesRefactored.Utilities.Exceptions;
@@ -88,7 +88,7 @@ namespace SolidPrinciplesRefactored
             var fakePrintReceipt = false;
 
             restaurant.Invoking(y => y.ExecuteOrder(fakeOrder, fakePaymentDetails, fakePrintReceipt))
-                .ShouldThrow<UnAuthorizedContactLessPayment>()
+                .Should().Throw<UnAuthorizedContactLessPayment>()
                 .WithMessage("Amount is too big");
         }
 
@@ -103,7 +103,7 @@ namespace SolidPrinciplesRefactored
             var fakePrintReceipt = true;
 
             restaurant.Invoking(y => y.ExecuteOrder(fakeOrder, fakePaymentDetails, fakePrintReceipt))
-                .ShouldThrow<NotValidPaymentException>()
+                .Should().Throw<NotValidPaymentException>()
                 .WithMessage("Can not charge customer");
         }
 
@@ -151,7 +151,7 @@ namespace SolidPrinciplesRefactored
             var fakePaymentDetails = fixture.Build<PaymentDetails>()
                 .With(c => c.PaymentMethod, PaymentMethod.ContactLessCreditCard)
                 .Create();
-            paymentService.Invoking(x => x.Charge(fakePaymentDetails, 19)).ShouldNotThrow<UnAuthorizedContactLessPayment>();
+            paymentService.Invoking(x => x.Charge(fakePaymentDetails, 19)).Should().NotThrow<UnAuthorizedContactLessPayment>();
         }
     }
 }

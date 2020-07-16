@@ -1,7 +1,7 @@
-﻿using FluentAssertions;
+﻿using AutoFixture;
+using FluentAssertions;
 using NUnit.Framework;
 using SolidPrinciples.Model;
-using Ploeh.AutoFixture;
 using SolidPrinciples.Utilities.Exceptions;
 
 namespace SolidPrinciples
@@ -77,7 +77,7 @@ namespace SolidPrinciples
             var fakePrintReceipt = false;
 
             restaurant.Invoking(y => y.ExecuteOrder(fakeOrder, fakePaymentDetails, fakePrintReceipt))
-                .ShouldThrow<UnAuthorizedContactLessPayment>()
+                .Should().Throw<UnAuthorizedContactLessPayment>()
                 .WithMessage("Amount is too big");
         }
 
@@ -92,7 +92,7 @@ namespace SolidPrinciples
             var fakePrintReceipt = true;
 
             restaurant.Invoking(y => y.ExecuteOrder(fakeOrder, fakePaymentDetails, fakePrintReceipt))
-                .ShouldThrow<NotValidPaymentException>()
+                .Should().Throw<NotValidPaymentException>()
                 .WithMessage("Can not charge customer");
         }
 
