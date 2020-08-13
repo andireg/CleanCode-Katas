@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProjectGuid>{EA2DA583-8F16-4DA6-A773-45FC0921303D}</ProjectGuid>
+    <ProjectGuid>{D1F3C3E4-9572-447D-AE4F-728F56AD2ECC}</ProjectGuid>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyTitle>SolidPrinciples</AssemblyTitle>
     <Product>SolidPrinciples</Product>

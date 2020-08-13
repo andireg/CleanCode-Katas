@@ -11,8 +11,3 @@ The supermarket wants to calculate product discounts. The rules are the followin
 - If 2 or less products are bought then no discount is offered.
 - If 3 or up to 10 products are bought then for every 3 products offer one for free.
 - If over 11 products are bought then apply 50% off the total price.
-
- 1. Solution
-===============
-
-- Solution can be found inside Solution folder.
